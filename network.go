@@ -101,9 +101,6 @@ func (n *Neewer) sendHeartbeat() {
 		if n.OnAliveChange != nil {
 			n.OnAliveChange(false)
 		}
-		if n.OnStateChange != nil {
-			n.OnStateChange(n.State)
-		}
 	}
 	if !n.State.Alive {
 		n.txQueue <- &protocol.ConnectRequestMessage{
