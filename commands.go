@@ -27,5 +27,8 @@ func (n *Neewer) SetLight(brightness, temperature int) error {
 			Temperature: temperature,
 		},
 	}
+	n.txQueue <- &protocol.QueryStateMessage{
+		Type: protocol.LightState,
+	}
 	return nil
 }
